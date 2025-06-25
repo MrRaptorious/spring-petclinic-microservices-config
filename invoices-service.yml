@@ -31,6 +31,7 @@ chaos:
       service: true
     assaults:
       latencyActive: true
+    level: 5
 management:
   endpoint:
     chaosmonkey:

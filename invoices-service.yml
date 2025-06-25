@@ -6,6 +6,7 @@ eureka:
   instance:
     # enable to register multiple app instances with a random server port
     instance-id: ${spring.application.name}:${random.uuid}
+
 ---
 spring:
   config:
@@ -17,6 +18,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery-server:8761/eureka/
+management:
+---
+spring:
+  config:
+    activate:
+      on-profile: chaos-monkey
 chaos:
   monkey:
     enabled: true
@@ -30,9 +37,7 @@ management:
       enabled: true
     chaosmonkeyjmx:
       enabled: true
-
   endpoints:
     web:
       exposure:
-        # include all endpoints
         include: "*"
